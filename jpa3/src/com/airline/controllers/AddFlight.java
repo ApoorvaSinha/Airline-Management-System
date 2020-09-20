@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.airline.models.Airplane;
 import com.airline.models.Flight;
 import com.airline.models.FlightDestinations;
+import com.airline.service.FlightService;
 
 /**
  * Servlet implementation class AddFlight
@@ -24,6 +26,10 @@ public class AddFlight extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
+	
+	@EJB
+	FlightService fs;
+	
     public AddFlight() {
         super();
         // TODO Auto-generated constructor stub
@@ -55,6 +61,11 @@ public class AddFlight extends HttpServlet {
 		a.setPlaneMake("Boeing");
 		a.setSeatingCapacity(250);
 		
+		f.setAirplainDetails(a);
+		System.out.println(f);
+		System.out.println(a);
+		
+		fs.addFlight(f, a);
 	}
 
 	/**
