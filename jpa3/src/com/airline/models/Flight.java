@@ -34,6 +34,10 @@ public class Flight implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date flightTime;
 
+	@OneToOne
+	@JoinColumn(name = "airplane_fk")
+	private Airplane airplaneDetails;
+
 	public Integer getId() {
 		return id;
 	}
@@ -74,12 +78,18 @@ public class Flight implements Serializable {
 		this.flightTime = flightTime;
 	}
 
+	public Airplane getAirplainDetails() {
+		return airplaneDetails;
+	}
+
+	public void setAirplainDetails(Airplane airplainDetails) {
+		this.airplaneDetails = airplainDetails;
+	}
+
 	@Override
 	public String toString() {
 		return "Flight [id=" + id + ", flightOrigin=" + flightOrigin + ", flightDestination=" + flightDestination
 				+ ", price=" + price + ", flightTime=" + flightTime + "]";
 	}
-	
-	
 
 }

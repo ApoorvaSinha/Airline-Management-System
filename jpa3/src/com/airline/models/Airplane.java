@@ -24,6 +24,9 @@ public class Airplane implements Serializable {
 	private String planeMake;
 	private String modelName;
 	private Integer seatingCapacity;
+	
+	@OneToOne(mappedBy="airplaneDetails")
+	private Flight flight;
 
 	public Integer getId() {
 		return id;
