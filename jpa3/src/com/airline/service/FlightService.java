@@ -1,5 +1,7 @@
 package com.airline.service;
 
+import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -42,6 +44,13 @@ public class FlightService {
 		TypedQuery<Pilot> pQuery = em.createNamedQuery("Pilot.findById", Pilot.class);
 		pQuery.setParameter("id", Integer.parseInt(pilotId));
 		Pilot p = pQuery.getSingleResult();
+
+		List<Pilot> pList = f.getPilots();
+		pList.add(p);
+
+		f.setPilots(pList);
+		
+		p.setFlightForPilot(f);
 	}
 
 }
