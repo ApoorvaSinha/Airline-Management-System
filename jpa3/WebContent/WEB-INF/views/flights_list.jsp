@@ -20,7 +20,7 @@
 			<th>Pilot Name</th>
 		</tr>
 		<%
-			List<Flight> fList = (List<Flight>) request.getAttribute("flight_list");
+			List<Flight> fList = (List<Flight>) request.getAttribute("flights_list");
 
 			for (Integer i = 0; i < fList.size(); i++) {
 		%>
