@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,8 +40,8 @@ public class Flights extends HttpServlet {
 		// TODO Auto-generated method stub
 		List<Flight> fList=(List<Flight>)fs.getFlights();
 		request.setAttribute("flight list", fList);
-		PrintWriter out=response.getWriter();
-		out.println("List of Flights will be displayed here...");
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/views/flights_list.jsp");
+		view.forward(request, response);
 	}
 
 	/**
