@@ -49,8 +49,16 @@ public class FlightService {
 		pList.add(p);
 
 		f.setPilots(pList);
-		
+
 		p.setFlightForPilot(f);
+	}
+
+	public List<Flight> getFlights() {
+
+		TypedQuery<Flight> query = em.createQuery("SELECT f FROM Flight f", Flight.class);
+		List<Flight> results = query.getResultList();
+		return results;
+
 	}
 
 }
