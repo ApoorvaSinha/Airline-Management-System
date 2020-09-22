@@ -41,9 +41,9 @@ public class Passengers extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		List<Passenger> pList= (List<Passenger>) ps.getPassengers();
-		request.setAttribute("passenger_list", pList);
-		//RequestDispatcher view = request.getRequestDispatcher("WEB-INF/views/passengers_list.jsp");
-		//view.forward(request, response);
+		request.setAttribute("passengers_list", pList);
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/views/passengers_list.jsp");
+		view.forward(request, response);
 	}
 
 	/**
