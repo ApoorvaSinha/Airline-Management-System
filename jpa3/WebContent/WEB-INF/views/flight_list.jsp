@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylessheet" href="resources/css/jpaStyles.css" />
 <title>Flights List</title>
 </head>
 <body>
