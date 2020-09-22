@@ -31,7 +31,7 @@
 			<td><%=fList.get(i).getFlightTime()%></td>
 			<td><%=fList.get(i).getPrice()%></td>
 			
-			<td><%= fList.get(i).getAirplainDetails().getModelName() %></td>
+			<td><%= fList.get(i).getAirplainDetails().getPlaneMake() + " " + fList.get(i).getAirplainDetails().getModelName() %></td>
 			<td><%= fList.get(i).getAirplainDetails().getSeatingCapacity() %></td>
 			
 			<td>
