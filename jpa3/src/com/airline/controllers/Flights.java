@@ -39,8 +39,8 @@ public class Flights extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		List<Flight> fList=(List<Flight>)fs.getFlights();
-		request.setAttribute("flight list", fList);
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/views/flights_list.jsp");
+		request.setAttribute("flight_list", fList);
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/views/flight_list.jsp");
 		view.forward(request, response);
 	}
 

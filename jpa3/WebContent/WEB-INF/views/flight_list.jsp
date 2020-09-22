@@ -1,9 +1,9 @@
-<%@ page import="java.util.*,com.airline.models.*"%>
+<%@ page import="java.util.*,com.airline.models.*" language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-
-<!-- <link rel="stylessheet" href="resources/css/jpaStyles.css" /> -->
+<meta charset="ISO-8859-1">
 <title>Flights List</title>
 </head>
 <body>
@@ -20,7 +20,7 @@
 			<th>Pilot Name</th>
 		</tr>
 		<%
-			List<Flight> fList = (List<Flight>) request.getAttribute("flights_list");
+			List<Flight> fList = (List<Flight>) request.getAttribute("flight_list");
 
 			for (Integer i = 0; i < fList.size(); i++) {
 		%>
