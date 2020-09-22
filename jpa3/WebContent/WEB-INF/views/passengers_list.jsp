@@ -11,6 +11,7 @@
 	<h1>List of Passengers</h1>
 	<table>
 		<tr>
+			<th>Id</th>
 			<th>First Name</th>
 			<th>Last Name</th>
 			<th>Date of Birth</th>
@@ -23,6 +24,7 @@
 			for (Integer i = 0; i < pList.size(); i++) {
 		%>
 		<tr>
+			<td><%=pList.get(i).getId() %></td>
 			<td><%=pList.get(i).getFirstName() %></td>
 			<td><%=pList.get(i).getLastName() %></td>
 			<td><%=pList.get(i).getDob() %></td>
