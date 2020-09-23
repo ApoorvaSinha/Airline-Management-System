@@ -4,20 +4,24 @@
 
 <html>
     <head>
+    	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
         <style>
             body {
                 font-family: arial,sans-serif;
                 font-size: 14px;
             }
         </style>
+        
     </head>
     
     <body>
-        <h1 style="text-decoration: underline;">Fancy Forms</h1>
+    
+    	
+        <h1 style="text-decoration: underline;">Airline Forms</h1>
         <h1>Add Flight and airplane</h1>
-        <form method="POST" action="">
+        <form method="POST" action="AddFlight">
             From:
-            <select id="from_destination" name="from_destination">
+            <select name="from_destination">
                 <option value="San_Francisco">San Francisco</option>
                 <option value="Los_Angeles">Los Angeles</option>
                 <option value="New_York">New York</option>
@@ -30,7 +34,7 @@
             <br /><br />
             
             To:
-            <select id="to_destination" name="to_destination">
+            <select name="to_destination">
                 <option value="San_Francisco">San Francisco</option>
                 <option value="Los_Angeles">Los Angeles</option>
                 <option value="New_York">New York</option>
@@ -56,7 +60,7 @@
             Month:
             <select name="month">
                 <option value="0">January</option>
-                <option value="1">Febuary</option>
+                <option value="1">February</option>
                 <option value="2">March</option>
                 <option value="3">April</option>
                 <option value="4">May</option>
@@ -71,32 +75,32 @@
             <br /><br />
             
             Day of Month:
-            <input name="day" type="text">
+            <input name="day" type="text"></input>
             <br /><br />
             
             Hour of Day (0-23):
-            <input name="hour" type="text">
+            <input name="hour" type="text"></input>
             <br /><br />
      
             Minute (0-59):
-            <input name="minute" type="text">
+            <input name="minute" type="text"></input>
             <br /><br />
 
             Price:
-            <input name="price" type="text">
+            <input name="price" type="text"></input>
             <hr />
             <h4>Aiplane:</h4>
             
             Plane Make:
-            <input name="planeMake" type="text">
+            <input name="aiplane_make" type="text"></input>
             <br /><br />
             
             Model Name:
-            <input name="modelName" type="text">
+            <input name="airplane_model" type="text"></input>
             <br /><br />
             
             Seating:
-            <input name="seatingCapacity" type="text">
+            <input name="airplane_seating" type="text"></input>
             <hr />
             
             <button type="submit">Add Flight and airplane</button>
@@ -192,6 +196,10 @@
             <hr />
         
         </form>
+        
+        <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> -->
         
     </body>
     

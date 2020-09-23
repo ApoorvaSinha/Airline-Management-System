@@ -22,58 +22,84 @@ import com.airline.service.FlightService;
 @WebServlet("/AddFlight")
 public class AddFlight extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-	
-	@EJB
-	FlightService fs;
-	
-    public AddFlight() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		Flight f = new Flight();
-		f.setFlightOrigin(FlightDestinations.Los_Angeles);
-		f.setFlightDestination(FlightDestinations.London);
-		f.setPrice(400);
-		
-		Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.YEAR, 2020);
-		cal.set(Calendar.MONTH, 10);
-		cal.set(Calendar.DAY_OF_MONTH, 8);
-		cal.set(Calendar.MINUTE, 0);
-		
-		Date flightTime = cal.getTime();
-		
-		System.out.println(flightTime);
-		f.setFlightTime(flightTime);
-		
-		Airplane a = new Airplane();
-		a.setModelName("701");
-		a.setPlaneMake("Boeing");
-		a.setSeatingCapacity(250);
-		
-		f.setAirplainDetails(a);
-		System.out.println(f);
-		System.out.println(a);
-		
-		fs.addFlight(f, a);
+
+	@EJB
+	FlightService fs;
+
+	public AddFlight() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		// doGet(request, response);
+
+		Flight f = new Flight();
+
+		String from_destination = request.getParameter("from_destination");
+		f.setFlightOrigin(FlightDestinations.valueOf(from_destination));
+
+		String to_destination = request.getParameter("to_destination");
+		f.setFlightOrigin(FlightDestinations.valueOf(to_destination));
+
+		Integer year = Integer.parseInt(request.getParameter("year"));
+		Integer month = Integer.parseInt(request.getParameter("month"));
+		Integer day = Integer.parseInt(request.getParameter("day"));
+		Integer hour = Integer.parseInt(request.getParameter("hour"));
+		Integer minute = Integer.parseInt(request.getParameter("minute"));
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.YEAR, year);
+		cal.set(Calendar.MONTH, month);
+		cal.set(Calendar.DAY_OF_MONTH, day);
+		cal.set(Calendar.HOUR_OF_DAY, hour);
+		cal.set(Calendar.MINUTE, minute);
+
+		Date flightTime = cal.getTime();
+
+		System.out.println(flightTime);
+		f.setFlightTime(flightTime);
+		
+		String price = request.getParameter("price");
+		f.setPrice(Integer.parseInt(price));
+
+
+		Airplane a = new Airplane();
+
+		String planeMake = request.getParameter("aiplane_make");
+		String planeModelName = request.getParameter("aiplane_model");
+		Integer seating = Integer.parseInt(request.getParameter("aiplane_seating"));
+
+		a.setModelName(planeModelName);
+		a.setPlaneMake(planeMake);
+		a.setSeatingCapacity(seating);
+
+		f.setAirplainDetails(a);
+		System.out.println(f);
+		System.out.println(a);
+
+		fs.addFlight(f, a);
+		response.sendRedirect("Flights");
+
 	}
 
 }
