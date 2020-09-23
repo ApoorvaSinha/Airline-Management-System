@@ -60,7 +60,7 @@ public class AddFlight extends HttpServlet {
 		f.setFlightOrigin(FlightDestinations.valueOf(from_destination));
 
 		String to_destination = request.getParameter("to_destination");
-		f.setFlightOrigin(FlightDestinations.valueOf(to_destination));
+		f.setFlightDestination(FlightDestinations.valueOf(to_destination));
 
 		Integer year = Integer.parseInt(request.getParameter("year"));
 		Integer month = Integer.parseInt(request.getParameter("month"));
@@ -85,9 +85,9 @@ public class AddFlight extends HttpServlet {
 
 		Airplane a = new Airplane();
 
-		String planeMake = request.getParameter("aiplane_make");
-		String planeModelName = request.getParameter("aiplane_model");
-		Integer seating = Integer.parseInt(request.getParameter("aiplane_seating"));
+		String planeMake = request.getParameter("airplane_make");
+		String planeModelName = request.getParameter("airplane_model");
+		Integer seating = Integer.parseInt(request.getParameter("airplane_seating"));
 
 		a.setModelName(planeModelName);
 		a.setPlaneMake(planeMake);

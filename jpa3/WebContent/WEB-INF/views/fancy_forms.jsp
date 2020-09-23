@@ -92,7 +92,7 @@
             <h4>Aiplane:</h4>
             
             Plane Make:
-            <input name="aiplane_make" type="text"></input>
+            <input name="airplane_make" type="text"></input>
             <br /><br />
             
             Model Name:
