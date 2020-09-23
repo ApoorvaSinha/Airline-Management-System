@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="resources/css/simpleform_styles.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
   <meta charset="utf-8">
-    	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+
         <!-- <style>
             body {
                 font-family: arial,sans-serif;
@@ -142,7 +142,7 @@
         
         </form>
         
-        <h1>Add Passenger</h1>
+        <!-- <h1>Add Passenger</h1>
         <form method="post" action="AddPassenger">
             
             First Name:
@@ -166,7 +166,7 @@
             <button type="submit">Add Passenger</button>
             <hr />
         
-        </form>
+        </form> -->
         
         <h1>Add Passenger to Flight</h1>
         <form method="post" action="AddPassengerToFlight">
@@ -207,7 +207,7 @@
 
 
 
-<!-- <h1>Add Passenger</h1>
+<h1>Add Passenger</h1>
 <div class="container contact">
   <div class="row">
     <div class="col-md-3">
@@ -218,8 +218,8 @@
       </div>
     </div>
     <div class="col-md-9">
-    <form method="post" action="AddPassenger">
       <div class="contact-form">
+      <form method="post" action="AddPassenger">
         <div class="form-group" >
           <label class="control-label col-sm-2" for="fname">First Name:</label>
           <div class="col-sm-10">
@@ -232,12 +232,9 @@
             <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" name="last_name">
           </div>
         </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="dob">DOB</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" placeholder="dd/mm/yyyy">
-          </div>
-        </div>
+        Date of Birth:
+            <input name="dob" type="text">
+            <br /><br />
         Gender:
             <select name="gender">
                 <option value="Female">Female</option>
@@ -246,8 +243,8 @@
             <hr />
         <button type="submit">Add Passenger</button>
             <hr />
+          </form>
       </div>
     </div>
-    </form>
   </div>
-</div> -->
+</div>
