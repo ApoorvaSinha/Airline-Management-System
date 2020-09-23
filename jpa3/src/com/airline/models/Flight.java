@@ -36,12 +36,16 @@ public class Flight implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date flightTime;
 
-	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	@JoinColumn(name = "airplane_fk")
 	private Airplane airplaneDetails;
-	
-	@OneToMany(mappedBy="flightForPilot")
+
+	@OneToMany(mappedBy = "flightForPilot")
 	private List<Pilot> pilots;
+
+	@ManyToMany
+	@JoinTable(name = "f_p_join", joinColumns = @JoinColumn(name = "flight_fk"), inverseJoinColumns = @JoinColumn(name = "passenger_fk"))
+	private List<Passenger> passengers;
 
 	public Integer getId() {
 		return id;
@@ -91,13 +95,20 @@ public class Flight implements Serializable {
 		this.airplaneDetails = airplainDetails;
 	}
 
-	
 	public List<Pilot> getPilots() {
 		return pilots;
 	}
 
 	public void setPilots(List<Pilot> pilots) {
 		this.pilots = pilots;
+	}
+
+	public List<Passenger> getPassengers() {
+		return passengers;
+	}
+
+	public void setPassengers(List<Passenger> passengers) {
+		this.passengers = passengers;
 	}
 
 	@Override
@@ -107,5 +118,4 @@ public class Flight implements Serializable {
 				+ ", pilots=" + pilots + "]";
 	}
 
-	
 }

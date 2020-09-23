@@ -2,15 +2,18 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 
-<html>
+<html lang="en" dir="ltr">
     <head>
+    <link rel="stylesheet" href="resources/css/simpleform_styles.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+  <meta charset="utf-8">
     	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
-        <style>
+        <!-- <style>
             body {
                 font-family: arial,sans-serif;
                 font-size: 14px;
             }
-        </style>
+        </style> -->
         
     </head>
     
@@ -140,7 +143,7 @@
         </form>
         
         <h1>Add Passenger</h1>
-        <form method="post" action="">
+        <form method="post" action="AddPassenger">
             
             First Name:
             <input name="first_name" type="text">
@@ -166,7 +169,7 @@
         </form>
         
         <h1>Add Passenger to Flight</h1>
-        <form method="post" action="">
+        <form method="post" action="AddPassengerToFlight">
             
             Add a Passenger with an Id of
             <input name="pid" type="text">
@@ -181,7 +184,7 @@
         
         <h1>Add Flight to Passenger <span style="font-size: 16px; vertical-align: middle;">(give a passenger another flight ticket to his/her collection of flight tickets)</span> </h1>
         
-        <form method="post" action="">
+        <form method="post" action="AddFlightTicketToPassenger">
             
             Add a ticket for a flight with an Id of
             <input name="fid" type="text">
@@ -197,10 +200,54 @@
         
         </form>
         
-        <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> -->
-        
     </body>
     
 </html>
+
+
+
+
+<!-- <h1>Add Passenger</h1>
+<div class="container contact">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="contact-info">
+        <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image" />
+        <h2>Fansy Forms</h2>
+        <h4>We would love to hear from you !</h4>
+      </div>
+    </div>
+    <div class="col-md-9">
+    <form method="post" action="AddPassenger">
+      <div class="contact-form">
+        <div class="form-group" >
+          <label class="control-label col-sm-2" for="fname">First Name:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="fname" placeholder="Enter First Name" name="first_name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="lname">Last Name:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" name="last_name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="dob">DOB</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" placeholder="dd/mm/yyyy">
+          </div>
+        </div>
+        Gender:
+            <select name="gender">
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+            </select>
+            <hr />
+        <button type="submit">Add Passenger</button>
+            <hr />
+      </div>
+    </div>
+    </form>
+  </div>
+</div> -->

@@ -34,7 +34,7 @@
 			</tr>
 			
 			<tr>
-				<td colspan="4">No Flight Tickets yet.</td>
+				<td colspan="5">No Flight Tickets yet.</td>
 			</tr>
 			
 		<%
