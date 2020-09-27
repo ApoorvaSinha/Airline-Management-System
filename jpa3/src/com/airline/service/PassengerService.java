@@ -32,8 +32,9 @@ public class PassengerService {
 	@PersistenceContext(unitName = "airline")
 	private EntityManager em;
 
-	public void addPassenger(Passenger p) {
+	public Passenger addPassenger(Passenger p) {
 		em.persist(p);
+		return p;
 	}
 
 	public void addFlightTicketToPassenger(String flightId, String passengerId) {
