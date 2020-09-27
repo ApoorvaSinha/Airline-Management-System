@@ -88,5 +88,13 @@ public class FlightService {
 		return results;
 
 	}
+	
+	public Flight getFlight(Integer flightId) {
+		
+		TypedQuery<Flight> fQuery = em.createNamedQuery("Flight.findById", Flight.class);
+		fQuery.setParameter("id",flightId);
+		Flight f = fQuery.getSingleResult();
+		return f;
+	}
 
 }

@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -18,27 +19,37 @@ import com.airline.service.PassengerService;
 
 @Path("/passengers")
 public class PassengersWebService {
-	
+
 	@PersistenceContext(unitName = "airline")
 	EntityManager em;
-	
+
 	@EJB
 	PassengerService ps;
-	
+
 	@Context
 	UriInfo pUriInfo;
-	
+
 	public PassengersWebService() {
-		
+
 	}
-	
+
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<Passenger> getPassengers(){
-		
+	@Produces(MediaType.APPLICATION_XML)
+	public List<Passenger> getPassengers() {
+
 		List<Passenger> pList = ps.getPassengers();
-		
+
 		return pList;
+	}
+
+	@GET
+	@Produces(MediaType.APPLICATION_XML)
+	@Path("{passenger_id}")
+	public Passenger getPassenger(@PathParam("passenger_id") Integer passengerId) {
+
+		// localhost:9999/Airline/airlineservices/rest/flights
+		Passenger p = ps.getPassenger(passengerId);
+		return p;
 	}
 
 }

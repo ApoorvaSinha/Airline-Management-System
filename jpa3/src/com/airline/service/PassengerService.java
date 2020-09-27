@@ -30,13 +30,13 @@ public class PassengerService {
 
 	@PersistenceContext(unitName = "airline")
 	private EntityManager em;
-	
+
 	public void addPassenger(Passenger p) {
 		em.persist(p);
 	}
-	
-	public void addFlightTicketToPassenger(String flightId,String passengerId) {
-		
+
+	public void addFlightTicketToPassenger(String flightId, String passengerId) {
+
 		CriteriaBuilder builder = em.getCriteriaBuilder();
 		CriteriaQuery<Passenger> cqPassenger = builder.createQuery(Passenger.class);
 		Root<Passenger> pRoot = cqPassenger.from(Passenger.class);
@@ -54,15 +54,26 @@ public class PassengerService {
 		List<Flight> fList = p.getFlights();
 		fList.add(f);
 		p.setFlights(fList);
-		
+
 		f.getPassengers().add(p);
-		
+
 	}
-	
-	public List<Passenger> getPassengers(){
-		
-		TypedQuery<Passenger> query= em.createQuery("SELECT p FROM Passenger p", Passenger.class);
+
+	public List<Passenger> getPassengers() {
+
+		TypedQuery<Passenger> query = em.createQuery("SELECT p FROM Passenger p", Passenger.class);
 		List<Passenger> pList = query.getResultList();
 		return pList;
+	}
+
+	public Passenger getPassenger(Integer passengerId) {
+
+		CriteriaBuilder builder = em.getCriteriaBuilder();
+		CriteriaQuery<Passenger> cqPassenger = builder.createQuery(Passenger.class);
+		Root<Passenger> pRoot = cqPassenger.from(Passenger.class);
+		cqPassenger.select(pRoot).where(builder.equal(pRoot.get("id").as(Integer.class), passengerId));
+		TypedQuery<Passenger> pQuery = em.createQuery(cqPassenger);
+		Passenger p = pQuery.getSingleResult();
+		return p;
 	}
 }
