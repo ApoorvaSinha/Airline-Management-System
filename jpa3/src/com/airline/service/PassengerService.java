@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -73,7 +74,15 @@ public class PassengerService {
 		Root<Passenger> pRoot = cqPassenger.from(Passenger.class);
 		cqPassenger.select(pRoot).where(builder.equal(pRoot.get("id").as(Integer.class), passengerId));
 		TypedQuery<Passenger> pQuery = em.createQuery(cqPassenger);
-		Passenger p = pQuery.getSingleResult();
+
+		Passenger p = null;
+
+		try {
+			p = pQuery.getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
+
 		return p;
 	}
 }

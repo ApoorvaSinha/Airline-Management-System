@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -93,7 +94,15 @@ public class FlightService {
 		
 		TypedQuery<Flight> fQuery = em.createNamedQuery("Flight.findById", Flight.class);
 		fQuery.setParameter("id",flightId);
-		Flight f = fQuery.getSingleResult();
+		
+		Flight f= null;
+		
+		try {
+			f = fQuery.getSingleResult();
+		}catch (NoResultException e) {
+			return null;
+		}
+		
 		return f;
 	}
 

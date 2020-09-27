@@ -6,6 +6,7 @@ import javax.ejb.EJB;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.GET;
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -49,6 +50,11 @@ public class FlightsWebService {
 
 		// localhost:9999/Airline/airlineservices/rest/flights
 		Flight f = fs.getFlight(flightId);
+
+		if (f == null) {
+			throw new NotFoundException("The Flight with an Id of " + flightId + "was not found");
+		}
+
 		return f;
 	}
 
