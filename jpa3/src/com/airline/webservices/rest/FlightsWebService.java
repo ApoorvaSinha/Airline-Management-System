@@ -5,6 +5,8 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.Path;
@@ -14,11 +16,13 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import com.airline.models.Flight;
 import com.airline.service.FlightService;
 
 @Path("/flights")
+@Transactional
 public class FlightsWebService {
 
 	@PersistenceContext(unitName = "airline")
@@ -56,6 +60,20 @@ public class FlightsWebService {
 		}
 
 		return f;
+	}
+
+	@DELETE
+	@Path("{flight_id}")
+	public Response deleteFlight(@PathParam("flight_id") Integer flightId) {
+
+		Flight flightToRemove = em.find(Flight.class, flightId);
+
+		if (flightToRemove == null) {
+			throw new NotFoundException("The Flight with an Id of " + flightId + "was not found");
+		}
+		
+		em.remove(flightToRemove);
+		return Response.noContent().build();
 	}
 
 }
