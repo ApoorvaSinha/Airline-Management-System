@@ -212,7 +212,7 @@
   <div class="row">
     <div class="col-md-3">
       <div class="contact-info">
-        <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image" />
+        <img src="resources/css/images/contact-image.png" alt="image" />
         <h2>Fansy Forms</h2>
         <h4>We would love to hear from you !</h4>
       </div>

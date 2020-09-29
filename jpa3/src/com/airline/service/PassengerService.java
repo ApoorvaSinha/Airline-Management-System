@@ -89,8 +89,8 @@ public class PassengerService {
 
 	public Passenger updatePassenger(Integer passengerId, Passenger pUpdated) {
 
-		Passenger p = em.find(Passenger.class, passengerId);
-
+		Passenger p = em.find(Passenger.class, passengerId); 
+				
 		if (p == null) {
 			return null;
 		}

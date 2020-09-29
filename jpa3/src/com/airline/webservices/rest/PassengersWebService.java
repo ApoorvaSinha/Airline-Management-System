@@ -74,14 +74,15 @@ public class PassengersWebService {
 	}
 	
 	@PUT
-	@Path("/edit/{pID}")
+	@Path("/edit/{pId}")
 	@Consumes("application/json")
-	public Response updatePassenger(@PathParam("pId") Integer passengerId, Passenger pUpdated) {
+	public Response updatePassenger(@PathParam("pId")Integer passengerId, Passenger pUpdated) {
 		pUpdated = ps.updatePassenger(passengerId, pUpdated);
 		
 		if(pUpdated==null) {
-			throw new NotFoundException("The Passenger with an Id of" + passengerId + "was not fornd.");
+			throw new NotFoundException("The Passenger with an Id of" + passengerId + "was not found.");
 		}
+		
 		return Response.ok(pUpdated).build();
 	}
 
