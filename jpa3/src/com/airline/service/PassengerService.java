@@ -89,8 +89,8 @@ public class PassengerService {
 
 	public Passenger updatePassenger(Integer passengerId, Passenger pUpdated) {
 
-		Passenger p = em.find(Passenger.class, passengerId); 
-				
+		Passenger p = em.find(Passenger.class, passengerId);
+
 		if (p == null) {
 			return null;
 		}
@@ -98,19 +98,34 @@ public class PassengerService {
 		if (pUpdated.getFirstName() != null) {
 			p.setFirstName(pUpdated.getFirstName());
 		}
-		
+
 		if (pUpdated.getLastName() != null) {
 			p.setLastName(pUpdated.getLastName());
 		}
-		
+
 		if (pUpdated.getDob() != null) {
 			p.setDob(pUpdated.getDob());
 		}
-		
+
 		if (pUpdated.getGender() != null) {
 			p.setGender(pUpdated.getGender());
 		}
 
 		return p;
+	}
+
+	public Passenger updatePassenger2(Integer passengerId, Passenger pUpdated) {
+
+		pUpdated.setId(passengerId);
+
+		Passenger pCheckExist = em.find(Passenger.class, passengerId);
+
+		if (pCheckExist == null) {
+			return null;
+		}
+
+		em.merge(pUpdated);
+
+		return pUpdated;
 	}
 }

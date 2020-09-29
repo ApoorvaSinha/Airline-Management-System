@@ -85,5 +85,19 @@ public class PassengersWebService {
 		
 		return Response.ok(pUpdated).build();
 	}
+	
+	@PUT
+	@Path("/edit2/{pId}")
+	@Consumes("application/json")
+	public Response updatePassenger2(@PathParam("pId")Integer passengerId, Passenger pUpdated) {
+		pUpdated = ps.updatePassenger2(passengerId, pUpdated);
+		
+		if(pUpdated==null) {
+			throw new NotFoundException("The Passenger with an Id of" + passengerId + "was not found.");
+		}
+		
+		return Response.ok(pUpdated).build();
+	}
+
 
 }
