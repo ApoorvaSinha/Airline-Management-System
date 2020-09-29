@@ -86,4 +86,31 @@ public class PassengerService {
 
 		return p;
 	}
+
+	public Passenger updatePassenger(Integer passengerId, Passenger pUpdated) {
+
+		Passenger p = em.find(Passenger.class, passengerId);
+
+		if (p == null) {
+			return null;
+		}
+
+		if (pUpdated.getFirstName() != null) {
+			p.setFirstName(pUpdated.getFirstName());
+		}
+		
+		if (pUpdated.getLastName() != null) {
+			p.setLastName(pUpdated.getLastName());
+		}
+		
+		if (pUpdated.getDob() != null) {
+			p.setDob(pUpdated.getDob());
+		}
+		
+		if (pUpdated.getGender() != null) {
+			p.setGender(pUpdated.getGender());
+		}
+
+		return p;
+	}
 }

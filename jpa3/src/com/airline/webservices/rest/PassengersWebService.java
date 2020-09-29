@@ -10,6 +10,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -70,6 +71,18 @@ public class PassengersWebService {
 		UriBuilder pUriBuilder = pUriInfo.getAbsolutePathBuilder();
 		URI pUri = pUriBuilder.path(String.valueOf(p.getId())).build();
 		return Response.created(pUri).build();
+	}
+	
+	@PUT
+	@Path("/edit/{pID}")
+	@Consumes("application/json")
+	public Response updatePassenger(@PathParam("pId") Integer passengerId, Passenger pUpdated) {
+		pUpdated = ps.updatePassenger(passengerId, pUpdated);
+		
+		if(pUpdated==null) {
+			throw new NotFoundException("The Passenger with an Id of" + passengerId + "was not fornd.");
+		}
+		return Response.ok(pUpdated).build();
 	}
 
 }
